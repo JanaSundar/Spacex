@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BASE_URL, options, years } from '../constants';
 import { useSpaceXData } from '../store/SpaceXContext';
-// import loadable from '@loadable/component';
 import Title from './Title';
 import Button from './Button';
 

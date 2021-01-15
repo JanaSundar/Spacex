@@ -12,10 +12,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // routes
-app.get('/', function (req, res) {
+
+app.use('/spacex', require('./Routes/spacex.routes'));
+
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
-app.use('/spacex', require('./Routes/spacex.routes'));
 
 // Connection Listener
 app.listen(PORT, () => {
