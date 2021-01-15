@@ -8,7 +8,8 @@ const expressStaticGzip = require('express-static-gzip');
 // Application level middleware
 if (process.env.NODE_ENV === 'production') {
   const buildPath = path.join(__dirname, '..', 'build');
-  app.use(express.static(expressStaticGzip(buildPath)));
+  app.use(expressStaticGzip(buildPath));
+  app.use(express.static(path.join(__dirname, '..', 'build')));
 }
 
 app.use(cors());
