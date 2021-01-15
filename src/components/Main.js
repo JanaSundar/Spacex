@@ -1,6 +1,8 @@
 import React from 'react';
-import Content from './Content';
-import Filter from './Filter';
+import loadable from '@loadable/component';
+
+const Filter = loadable(() => import('./Filter'));
+const Content = loadable(() => import('./Content'));
 
 const Main = () => {
   return (

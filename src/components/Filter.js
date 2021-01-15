@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BASE_URL, options, years } from '../constants';
-import Title from './Title';
-import Button from './Button';
 import { useSpaceXData } from '../store/SpaceXContext';
+import loadable from '@loadable/component';
+
+const Title = loadable(() => import('./Title'));
+const Button = loadable(() => import('./Button'));
 
 const Filter = () => {
   const [year, setYear] = useState('');

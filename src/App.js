@@ -1,5 +1,7 @@
-import Main from './components/Main';
 import { SpaceXProvider } from './store/SpaceXContext';
+import loadable from '@loadable/component';
+
+const Main = loadable(() => import('./components/Main'));
 
 function App() {
   return (
