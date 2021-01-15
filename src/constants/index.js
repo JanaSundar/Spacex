@@ -18,4 +18,4 @@ export const years = [
 
 export const options = ['true', 'false'];
 
-export const BASE_URL = '/spacex';
+export const BASE_URL = `https://space-xdata.herokuapp.com/spacex` || '';
