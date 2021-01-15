@@ -25,11 +25,11 @@ const Content = () => {
     <div className="content">
       {data.map((space, ind) => (
         <Fragment key={ind}>
-          {space.links?.mission_patch && (
+          {space.links?.mission_patch_small && (
             <div key={ind} className="content__card">
               <div className="content__card__image">
                 <LazyLoadImage
-                  src={space.links?.mission_patch}
+                  src={space.links?.mission_patch_small}
                   alt={space.mission_name}
                   effect="blur"
                   width="100%"
