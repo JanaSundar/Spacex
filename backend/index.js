@@ -1,18 +1,15 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path');
+const compression = require('compression');
 
 // Application level middleware
+app.use(compression());
 if (process.env.NODE_ENV === 'production') {
   const buildPath = path.join(__dirname, '..', 'build');
   app.use(express.static(path.join(buildPath)));
 }
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.get('/', function (req, res) {
