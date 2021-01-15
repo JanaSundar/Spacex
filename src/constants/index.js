@@ -18,4 +18,4 @@ export const years = [
 
 export const options = ['true', 'false'];
 
-export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = '/spacex';

@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+## To run the project execute following commands in sequence
+
+```js
+1. yarn install
+2. yarn build
+3. yarn start
+```
+
+and access the application at `http://localhost:5000/`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

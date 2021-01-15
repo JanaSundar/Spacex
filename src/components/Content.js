@@ -46,7 +46,7 @@ const Content = () => {
                 <ContentData
                   title="Successful landing"
                   value={
-                    space.rocket?.cores?.first_stage?.land_success
+                    space.rocket?.first_stage?.cores[0]?.land_success
                       ? 'true'
                       : 'false'
                   }
