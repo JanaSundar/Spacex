@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSpaceXData } from '../store/SpaceXContext';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import Loading from '../utils/Loading';
 import Empty from '../utils/Empty';
 import Error from '../utils/Error';
@@ -26,9 +28,10 @@ const Content = () => {
           {space.links?.mission_patch && (
             <div key={ind} className="content__card">
               <div className="content__card__image">
-                <img
+                <LazyLoadImage
                   src={space.links?.mission_patch}
                   alt={space.mission_name}
+                  effect="blur"
                   width="100%"
                   height="100%"
                 />
