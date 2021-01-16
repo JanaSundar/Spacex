@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BASE_URL, options, years } from '../constants';
-import { useDispatchContext } from '../store/SpaceXContext';
+import { DATA, LOADING, useDispatchContext } from '../store/SpaceXContext';
 import Title from './Title';
 import Button from './Button';
 import { FetchData } from '../utils/Fetch';
@@ -10,11 +10,11 @@ const Filter = () => {
   const [launch, setLaunch] = useState('');
   const [landing, setLanding] = useState('');
 
-  const { setData, setLoading } = useDispatchContext();
+  const dispatch = useDispatchContext();
 
   useEffect(() => {
     if (year || landing || launch) {
-      setLoading(true);
+      dispatch({ type: LOADING, payload: true });
       let URL = BASE_URL;
 
       if (year) {
@@ -31,13 +31,13 @@ const Filter = () => {
 
       const updateData = async () => {
         const result = await FetchData(URL);
-        setData(result);
-        setLoading(false);
+         dispatch({ type: DATA, payload: result });
+         dispatch({ type: LOADING, payload: false });
       };
 
       updateData();
     }
-  }, [year, landing, launch, setData, setLoading]);
+  }, [year, landing, launch, dispatch]);
 
   const handleClickYear = (value) => {
     setYear(value);

@@ -13,7 +13,7 @@ delete window.__STATE__;
 if (rootElement.hasChildNodes()) {
   hydrate(
     <React.StrictMode>
-      <SpaceXProvider state={state}>
+      <SpaceXProvider data={state}>
         <App />
       </SpaceXProvider>
     </React.StrictMode>,
@@ -22,7 +22,7 @@ if (rootElement.hasChildNodes()) {
 } else {
   render(
     <React.StrictMode>
-      <SpaceXProvider state={state}>
+      <SpaceXProvider data={state}>
         <App />
       </SpaceXProvider>
     </React.StrictMode>,

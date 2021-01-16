@@ -30,7 +30,7 @@ router.use('^/$', async (req, res, next) => {
         data.replace(
           '<div id="root"></div>',
           `<div id="root">${ReactDOMServer.renderToString(
-            <SpaceXProvider state={SpacexData}>
+            <SpaceXProvider data={SpacexData}>
               <App />
             </SpaceXProvider>
           )}</div>
