@@ -1,7 +1,7 @@
 ## To run the project execute following commands in sequence
 
 ```js
-1. yarn install
+1. yarn
 2. yarn build
 3. yarn start
 ```

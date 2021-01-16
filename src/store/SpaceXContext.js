@@ -2,23 +2,29 @@ import React, { useContext, useState } from 'react';
 // import useFetch from '../Hooks/useFetch';
 
 const SpaceXContext = React.createContext();
+const SpaceXDispatchContext = React.createContext();
 
 export const useSpaceXData = () => {
   return useContext(SpaceXContext);
 };
 
-// const useSpaceXProvider = () => {
-//   const { data, loading, refetch, error } = useFetch();
-//   return { data, loading, refetch, error };
-// };
+export const useDispatchContext = () => {
+  return useContext(SpaceXDispatchContext);
+};
 
 function SpaceXProvider({ children, state = [] }) {
   const [data, setData] = useState(state ?? []);
+  const [loading, setLoading] = useState(false);
 
-  const value = { data, setData };
+  const value = { data, loading };
+  const dispatchValue = { setData, setLoading };
 
   return (
-    <SpaceXContext.Provider value={value}>{children}</SpaceXContext.Provider>
+    <SpaceXContext.Provider value={value}>
+      <SpaceXDispatchContext.Provider value={dispatchValue}>
+        {children}
+      </SpaceXDispatchContext.Provider>
+    </SpaceXContext.Provider>
   );
 }
 export { SpaceXProvider };

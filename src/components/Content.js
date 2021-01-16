@@ -1,26 +1,21 @@
 import React, { Fragment } from 'react';
 import { useSpaceXData } from '../store/SpaceXContext';
-// import Loading from '../utils/Loading';
-// import Empty from '../utils/Empty';
-// import Error from '../utils/Error';
+import Loading from '../utils/Loading';
+import Empty from '../utils/Empty';
 import loadable from '@loadable/component';
 
 const Card = loadable(() => import('./Card'));
 
 const Content = () => {
-  const { data } = useSpaceXData();
+  const { data, loading } = useSpaceXData();
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
-  // if (error) {
-  //   return <Error />;
-  // }
-
-  // if (!data.length) {
-  //   return <Empty />;
-  // }
+  if (!data.length) {
+    return <Empty />;
+  }
 
   return (
     <div className="content">
