@@ -3,13 +3,14 @@ import { BASE_URL, options, years } from '../constants';
 import { useSpaceXData } from '../store/SpaceXContext';
 import Title from './Title';
 import Button from './Button';
+import { FetchData } from '../utils/Fetch';
 
 const Filter = () => {
   const [year, setYear] = useState('');
   const [launch, setLaunch] = useState('');
   const [landing, setLanding] = useState('');
 
-  const { refetch } = useSpaceXData();
+  const { setData } = useSpaceXData();
 
   useEffect(() => {
     if (year || landing || launch) {
@@ -27,9 +28,14 @@ const Filter = () => {
         URL += `&land_success=${landing}`;
       }
 
-      refetch(URL);
+      const updateData = async () => {
+        const result = await FetchData(URL);
+        setData(result);
+      };
+
+      updateData();
     }
-  }, [year, landing, launch, refetch]);
+  }, [year, landing, launch, setData]);
 
   const handleClickYear = (value) => {
     setYear(value);

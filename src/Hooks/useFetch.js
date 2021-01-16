@@ -7,7 +7,7 @@ const useFetch = (url = BASE_URL) => {
   const [error, setError] = useState('');
   const [data, setData] = useState([]);
 
-  const getData = useCallback(async (url) => {
+  const getData = useCallback(async (url = BASE_URL) => {
     try {
       setLoading(true);
       const result = await axios.get(url).then((res) => res.data);
