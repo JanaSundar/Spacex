@@ -13,18 +13,18 @@ const Filter = () => {
 
   useEffect(() => {
     if (year || landing || launch) {
-      let URL = `${BASE_URL}/filter?`;
+      let URL = BASE_URL;
 
       if (year) {
-        URL += `launch_year=${year}&`;
+        URL += `&launch_year=${year}`;
       }
 
       if (launch) {
-        URL += `launch_success=${launch}&`;
+        URL += `&launch_success=${launch}`;
       }
 
       if (landing) {
-        URL += `land_success=${landing}`;
+        URL += `&land_success=${landing}`;
       }
 
       refetch(URL);
