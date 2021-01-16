@@ -10,12 +10,12 @@ const Card = loadable(() => import('./Card'));
 const Content = () => {
   const { data, loading, error } = useSpaceXData();
 
-  if (error) {
-    return <Error />;
-  }
-
   if (loading) {
     return <Loading />;
+  }
+
+  if (error) {
+    return <Error />;
   }
 
   if (!data.length) {
