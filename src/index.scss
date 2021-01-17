@@ -136,7 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: minmax(350px, auto);
+    height: fit-content;
 
     &__image {
       height: 200px;
