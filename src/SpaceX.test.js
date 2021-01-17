@@ -12,7 +12,7 @@ import App from './App';
 import Content from './components/Content';
 import Filter from './components/Filter';
 import { SpaceXProvider } from './store/SpaceXContext';
-import { mockData } from './utils';
+import { mockData } from './constants';
 
 // Mocking axios
 jest.mock('axios');
@@ -34,8 +34,21 @@ describe('FILTER', () => {
     it('check text is present', () => {
       render(<Filter />);
       const title = screen.getByText(/Filters/i);
+      const year = screen.getByText(/year/i);
+      const launch = screen.getByText(/successful launch/i);
+      const landing = screen.getByText(/successful land/i);
       expect(title).toBeInTheDocument();
+      expect(year).toBeTruthy();
+      expect(launch).toBeTruthy();
+      expect(landing).toBeTruthy();
     });
+  });
+
+  test('button count', () => {
+    const { container } = render(<Filter />);
+    const allButton = container.querySelectorAll('.filter__btn');
+
+    expect(allButton).toHaveLength(19);
   });
 
   test('button click event', async () => {

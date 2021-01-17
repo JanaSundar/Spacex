@@ -8,6 +8,13 @@
 
 and access the application at `http://localhost:5000/`
 
+## To Find the Lighthouse score of this project
+
+```bash
+cd report 
+open SpaceX-Lighhouse-Report.pdf
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
