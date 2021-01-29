@@ -30,9 +30,15 @@ const Filter = () => {
       }
 
       const updateData = async () => {
-        const result = await FetchData(URL);
-         dispatch({ type: DATA, payload: result });
-         dispatch({ type: LOADING, payload: false });
+        try {
+          const result = await FetchData(URL);
+          if (result) {
+            dispatch({ type: DATA, payload: result });
+          }
+          dispatch({ type: LOADING, payload: false });
+        } catch (err) {
+          console.error(err);
+        }
       };
 
       updateData();

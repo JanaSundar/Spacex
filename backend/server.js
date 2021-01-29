@@ -18,7 +18,7 @@ router.use('^/$', async (req, res, next) => {
   const SpacexData = await FetchData();
 
   fs.readFile(
-    path.join(__dirname, '..', 'build', 'index.html'),
+    path.resolve(__dirname, '..', 'build', 'index.html'),
     'utf-8',
     (err, data) => {
       if (err) {
